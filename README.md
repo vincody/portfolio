@@ -1,6 +1,6 @@
 # Nguyễn Phú Vinh — Portfolio
 
-React + Vite + Motion. Static portfolio for Cloudflare Pages, with EN/VI and a monochrome responsive interface.
+React + Vite + Motion. Static portfolio for Cloudflare Workers Static Assets, with EN/VI and a monochrome responsive interface.
 
 ## Local and build
 
@@ -26,8 +26,19 @@ Desktop sections fade as they enter or leave the reading area, with native scrol
 
 Vietnamese uses self-hosted JetBrains Mono Nerd Font Mono (license: `public/fonts/OFL.txt`). English uses Sora from Google Fonts with a system fallback.
 
-## Cloudflare Pages
+## Cloudflare Workers
 
-Build command: `npm run build`. Output directory: `dist`. Node.js: 24. No environment variables or backend required.
+Connect the GitHub repository in Workers Builds. Use project name `portfolio`, production branch `main`, and the repository root directory.
 
-For Direct Upload, build first and upload the contents of `dist`, or a ZIP containing those contents.
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Preview command | `npx wrangler preview` |
+| Node.js | `24` |
+
+`wrangler.jsonc` serves the built `dist` directory, including `/resume.pdf`. This is an assets-only Worker; no backend script or application secrets are required. Keep Cloudflare Access off for the public portfolio. Preview builds may be enabled for non-production branches.
+
+Local Workers check: run `npm run build`, then `npm run dev:worker`. `npm run preview` remains Vite's local preview server; it is different from Cloudflare's Preview command.
+
+Configuration reference: https://developers.cloudflare.com/workers/static-assets/binding/
