@@ -1,0 +1,6 @@
+import Chapter from './Chapter';
+import {ArrowUpRight,BadgeCheck} from 'lucide-react';
+import {AnimatedButton,Reveal} from './Motion';
+export default function Certifications({certifications,t}){
+ return <Chapter id="certifications" className="section container certifications"><Reveal><h2 className="section-title"><strong>{t('Certifications')}</strong></h2><p className="certification-intro">{t('Credentials that support my cloud foundations.')}</p></Reveal><div className="certification-list">{certifications.map(cert=><Reveal key={cert.url}><article className="certification-card"><a href={cert.url} target="_blank" rel="noopener noreferrer" className="certification-badge" aria-label={`${t('Verify on Credly')}: ${cert.name}`}><img src={cert.image} alt={cert.name} width="200" height="200" loading="lazy"/></a><div className="certification-copy"><span className="eyebrow">AMAZON WEB SERVICES</span><h3>{cert.name}</h3><p>{t(cert.description)}</p><div className="certification-meta"><span><BadgeCheck size={16} aria-hidden="true"/> {t('Foundational certification')}</span><span>{t('Digital badge on Credly')}</span></div><AnimatedButton href={cert.url} target="_blank" rel="noopener noreferrer">{t('Verify on Credly')} <ArrowUpRight size={18}/></AnimatedButton></div></article></Reveal>)}</div></Chapter>;
+}

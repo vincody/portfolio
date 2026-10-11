@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+artifacts/
+test-results/
+playwright-report/
+
+# Local tools, previews, and original inputs
+tmp/
+resources/
+cv.png
+image.png
+my_info.md
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/

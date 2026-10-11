@@ -1,0 +1,130 @@
+% CV cua Nguyen Phu Vinh - bien dich bang XeLaTeX hoac LuaLaTeX.
+% Noi dung tieng Anh; ho ten giu dau tieng Viet.
+% Chi dien thong tin da xac nhan. Cac muc chua co du lieu duoc an khoi PDF.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=0.8in]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{needspace}
+\usepackage{fontawesome5}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=2pt,topsep=3pt,parsep=0pt}
+\titleformat{\section}{\normalsize\bfseries}{}{0pt}{\MakeUppercase}[\titlerule]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\hypersetup{
+  pdftitle={Nguyễn Phú Vinh - Cloud and Infrastructure CV},
+  pdfauthor={Nguyễn Phú Vinh},
+  pdfsubject={Cloud infrastructure, AWS, and technical skills}
+}
+
+% ===== THONG TIN CA NHAN =====
+\newcommand{\fullname}{Nguyễn Phú Vinh}
+\newcommand{\emailaddress}{vinhnp26@gmail.com}
+\newcommand{\githuburl}{https://github.com/vincody}
+\newcommand{\linkedinurl}{https://www.linkedin.com/in/phuvinh26/}
+\newcommand{\portfoliourl}{https://vinhnp.tech}
+\newcommand{\credentialurl}{https://www.credly.com/badges/bddba3a8-8c81-4882-9382-352f6247ba9e/public_url}
+\newcommand{\educationdates}{} % Add your study dates or expected graduation year.
+
+% ===== BAT CAC MUC KHI DA DIEN NOI DUNG THAT =====
+% Doi "false" thanh "true" sau khi bo sung thong tin trong muc tuong ung.
+\newif\ifshoweducation
+\showeducationtrue
+\newif\ifshowexperience
+\showexperiencefalse
+\newif\ifshowprojects
+\showprojectstrue
+
+% Hang hai cot: noi dung ben trai, thoi gian/dia diem ben phai.
+% Su dung \entry{ten don vi / du an}{thoi gian}{vai tro / bang cap}{dia diem}.
+\newcommand{\entry}[4]{%
+  \Needspace{4\baselineskip}%
+  \textbf{#1}\hfill #2\par
+  \textit{#3}\hfill \textit{#4}\par
+}
+
+\begin{document}
+
+\begin{center}
+  {\fontsize{20}{24}\selectfont\bfseries \fullname}\par
+  \vspace{3pt}
+  Cloud \& Infrastructure\par
+  \vspace{2pt}
+  {\small
+    \href{mailto:\emailaddress}{\faEnvelope\enspace\emailaddress}\quad
+    \href{\githuburl}{\faGithub\enspace GitHub}\quad
+    \href{\linkedinurl}{\faLinkedin\enspace LinkedIn}\quad
+    \href{\portfoliourl}{\faGlobe\enspace vinhnp.tech}
+  }
+\end{center}
+\vspace{-4pt}
+
+% ===== SUMMARY =====
+\section{Summary}
+Cloud and infrastructure focus, with AWS as the primary platform and Azure
+as a secondary platform. Technical interests include containers,
+infrastructure as code, CI/CD, automation, and observability.
+
+% ===== EDUCATION =====
+% School and major provided by the owner; dates and degree are not inferred.
+\ifshoweducation
+\section{Education}
+\textbf{University of Information Technology (UIT) - VNU-HCM}\par
+\textit{Major: Computer Networks and Data Communications}\hfill \educationdates
+% Add your degree, GPA, or relevant coursework only when confirmed.
+\fi
+
+% ===== EXPERIENCE =====
+% Chua co kinh nghiem lam viec duoc cung cap.
+\ifshowexperience
+\section{Experience}
+% \entry{Ten cong ty}{Thoi gian}{Chuc danh}{Dia diem}
+% \begin{itemize}
+%   \item Mo ta cong viec da lam, cong cu su dung va ket qua kiem chung.
+% \end{itemize}
+% Khong tu tao so lieu hoac ghi nhan thanh tich chua co bang chung.
+\fi
+
+% ===== CERTIFICATIONS =====
+\section{Certifications}
+\href{\credentialurl}{\textbf{AWS Certified Cloud Practitioner}}\hfill Amazon Web Services\par
+Foundational AWS Cloud concepts, services, security, and billing.\par
+% Them ngay cap / het han khi da xac nhan. Khong suy doan ma de thi.
+
+% ===== LANGUAGES =====
+\section{Languages}
+None
+% Replace None with confirmed language qualifications or IELTS results.
+
+% ===== TECHNICAL SKILLS =====
+\section{Technical Skills}
+\begin{itemize}
+  \item \textbf{Cloud:} AWS (primary), Azure (secondary).
+  \item \textbf{Containers:} Docker, Kubernetes.
+  \item \textbf{Infrastructure as Code:} Terraform.
+  \item \textbf{Delivery \& Automation:} CI/CD, Git, automation.
+  \item \textbf{Observability:} Prometheus, Grafana.
+\end{itemize}
+% Chi them ngon ngu lap trinh, he dieu hanh va trinh do ngoai ngu
+% khi co thong tin chinh xac. Khong dung thanh phan tram ky nang.
+
+% ===== PROJECTS =====
+% No real projects supplied yet. Replace None when adding verified work.
+\ifshowprojects
+\section{Projects}
+None
+% \entry{Ten du an}{Thoi gian}{Cong nghe su dung}{Lien ket repository}
+% \begin{itemize}
+%   \item Muc tieu, pham vi va phan ban truc tiep thuc hien.
+%   \item Lua chon kien truc, cach trien khai va ket qua kiem chung.
+% \end{itemize}
+\fi
+
+\end{document}
